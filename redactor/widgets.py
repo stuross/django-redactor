@@ -73,15 +73,13 @@ class RedactorEditor(Textarea):
     @property
     def media(self):
         js = (
-            'django-redactor/lib/jquery-1.7.min.js',
+            'django-redactor/lib/jquery.min.js',
             'django-redactor/redactor/redactor.min.js',
             'django-redactor/redactor/setup.js',
         )
-        if self.redactor_settings['lang'] != 'en':
-            js += ('django-redactor/redactor/langs/%s.js' % self.redactor_settings['lang'],)
         css = {
             'screen': [
-                'django-redactor/redactor/css/redactor.css',
+                'django-redactor/redactor/redactor.css',
             ]
         }
         return Media(css=css, js=js)
@@ -103,16 +101,14 @@ class AdminRedactorEditor(RedactorEditor):
     @property
     def media(self):
         js = (
-            'django-redactor/lib/jquery-1.7.min.js',
+            'django-redactor/lib/jquery.min.js',
             'django-redactor/redactor/redactor.min.js',
             'django-redactor/redactor/setup.js',
         )
-        if self.redactor_settings['lang'] != 'en':
-            js += ('django-redactor/redactor/langs/%s.js' % self.redactor_settings['lang'],)
         css = {
             'screen': [
-                'django-redactor/redactor/css/redactor.css',
-                'django-redactor/redactor/css/django_admin.css',
+                'django-redactor/redactor/redactor.css',
+                'django-redactor/redactor/django_admin.css',
             ]
         }
         return Media(css=css, js=js)
